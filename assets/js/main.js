@@ -1,12 +1,18 @@
 !(function ($) {
   "use strict";
-
   $(document).on("click", ".mobile-nav-toggle", function (e) {
     $("body").toggleClass("mobile-nav-active");
-    $(".mobile-nav-toggle i").toggleClass("icofont-navigation-menu icofont-close"
-    );
+    $(".mobile-nav-toggle i").toggleClass("icofont-navigation-menu icofont-close");
+    $(".toggle-btn").hide();
   });
 
+  if ($(document).on("click", ".mobile-nav-toggle", function () {
+      $(".toggle-btn").hide();
+  }));
+  if ($(document).on("click", ".mobile-nav-active", function () {
+      $(".toggle-btn").show();
+  }));
+  
   $(document).click(function (e) {
     var container = $(".mobile-nav-toggle");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -16,6 +22,7 @@
           "icofont-navigation-menu icofont-close"
         );
       }
+      $(".toggle-btn").show();
     }
   });
 
